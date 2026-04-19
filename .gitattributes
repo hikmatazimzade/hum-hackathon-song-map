@@ -1,1 +1,2 @@
+*.csv filter=lfs diff=lfs merge=lfs -text
 ukranian-songs/Dumy_Vol.1_Hrushevska_texts.csv filter=lfs diff=lfs merge=lfs -text
