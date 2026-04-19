@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(py -3 -m pip install --quiet pandas requests)",
+      "Bash(py -3 scripts/explore.py)",
+      "Bash(PYTHONIOENCODING=utf-8 PYTHONUTF8=1 py -3 scripts/explore.py)",
+      "Bash(mkdir -p public/data)",
+      "Bash(py -3 -c ' *)",
+      "WebSearch",
+      "Bash(PYTHONIOENCODING=utf-8 PYTHONUTF8=1 py -3 scripts/prepare_data.py)",
+      "Bash(npm install *)",
+      "Bash(curl -s -o /dev/null -w \"/ %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"icon %{http_code}\\\\n\" http://localhost:3000/icon.svg)",
+      "Bash(curl -s -o /dev/null -w \"favicon %{http_code}\\\\n\" http://localhost:3000/favicon.ico)",
+      "Bash(curl -s \"http://localhost:3000/data/songs.json\")",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s \"http://localhost:3000/data/songs.json\" -o /tmp/s.json)",
+      "Bash(py -3 -m pip install --quiet shapely)",
+      "Bash(PYTHONIOENCODING=utf-8 PYTHONUTF8=1 py -3 scripts/diagnose_geography.py)",
+      "Bash(curl -s -o /dev/null -w \"root %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"ethno geojson: %{http_code} %{size_download}B\\\\n\" http://localhost:3000/data/ukraine_ethno_regions.geojson)",
+      "Bash(curl -s -o /dev/null -w \"regions.json: %{http_code} %{size_download}B\\\\n\" http://localhost:3000/data/regions.json)",
+      "Bash(curl -s http://localhost:3000/data/ukraine_ethno_regions.geojson)",
+      "Bash(PYTHONIOENCODING=utf-8 PYTHONUTF8=1 py -3 scripts/diagnose_ethno.py)",
+      "Bash(PYTHONIOENCODING=utf-8 PYTHONUTF8=1 py -3 scripts/check_adjacency.py)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -o /dev/null -w \"page %{http_code}\\\\n\" http://localhost:3000/)"
+    ]
+  }
+}

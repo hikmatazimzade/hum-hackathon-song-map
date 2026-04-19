@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(py -3 --version)",
+      "Bash(py -3 -c \"import pandas; print\\(pandas.__version__\\)\")",
+      "Bash(py -3 -c ' *)"
+    ]
+  }
+}
