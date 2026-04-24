@@ -24,7 +24,7 @@ Possible extra features:
 
 ###
 
-Tasks: 2
+Task:
 
 - Analyzing and processing of Ukraine an Estonian datasets ✅
 - Vibe-coding platform UI ✅
