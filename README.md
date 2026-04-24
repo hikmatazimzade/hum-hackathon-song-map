@@ -5,7 +5,7 @@ the singers who lived there, read their songs, follow recommendations to
 similar songs and similar singers. Filter by theme or emotion along the
 way.
 
-It's a static-ish web app — a small Python preprocessing step turns the
+It's a static web app. A small Python preprocessing step turns the
 corpus CSVs into JSON that the Next.js frontend reads directly. No server,
 no database.
 
@@ -14,12 +14,7 @@ no database.
 You need Python 3 (with `pandas` and `shapely`) and Node 20+.
 
 ```bash
-# 1. Build the data bundle (reads the CSVs in the repo root, writes JSON
-#    and a GeoJSON to public/data/)
-py -3 -m pip install pandas shapely
-py -3 scripts/prepare_data.py
-
-# 2. Install and start the dev server
+# Install and start the dev server
 npm install
 npm run dev
 ```
@@ -61,24 +56,6 @@ more informative for "which Poltava kobzar is this". The frontend bridges
 the two via `src/lib/oblasts.ts`, which mirrors the same
 `OBLAST_TO_ETHNO` table.
 
-## Code shape
-
-```
-scripts/prepare_data.py     # CSV → /public/data/*.json + geojson
-public/data/                # what the app actually loads
-src/app/page.tsx            # layout, filter state, nav stack, URL hash
-src/components/Map.tsx      # MapLibre wrapper
-src/components/ThemesPanel.tsx      # left sidebar, top
-src/components/EmotionSliders.tsx   # left sidebar, bottom
-src/components/RightPanel.tsx       # dispatches to one of:
-src/components/RegionView.tsx
-src/components/SingerView.tsx
-src/components/SongView.tsx
-src/lib/recommendations.ts  # filter helpers, unknown-bucket check
-src/lib/range-slider.tsx    # dual-handle primitive
-src/lib/density-scale.ts    # shared sqrt color ramp
-```
-
 The right-panel views are three different components; `RightPanel`
 mounts one at a time based on the top of the nav stack.
 
@@ -93,7 +70,7 @@ Two independent filters combine via AND:
 
 When either is active, the map recolors by filtered song counts per
 region, the theme counts update to co-occurrence, and the right-panel
-singer/song lists narrow. Nothing is ever _hidden_ from recommendations —
+singer/song lists narrow. Nothing is ever _hidden_ from recommendations,
 similar-songs and similar-singers still resolve; they're just re-ordered
 to put filter-matching ones first, and fall back to the unfiltered top 5
 if the filter would leave fewer than three.
